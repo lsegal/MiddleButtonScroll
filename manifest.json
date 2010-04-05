@@ -1,6 +1,6 @@
 {
   "name": "MiddleButtonScroll",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Adds smooth scrolling for the middle button auto-scroll and improves the UI.",
   "icons": { 
     "128": "icon128.png",
