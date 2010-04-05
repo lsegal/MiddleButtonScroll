@@ -133,12 +133,12 @@ function panScrollMouseMove(event) {
   if (middleMouseDown) {
     scrollDx = scrollScale(event.clientX - startPosition.x);
     scrollDy = scrollScale(event.clientY - startPosition.y);
+    if (Math.abs(event.clientX - startPosition.x) < panScrollDiv.offsetWidth / 2.0) scrollDx = 0;
+    if (Math.abs(event.clientY - startPosition.y) < panScrollDiv.offsetHeight / 2.0) scrollDy = 0;
+    if (scrollDx > maxDx) scrollDx = maxDx;
+    if (scrollDy > maxDy) scrollDy = maxDy;
     if (event.clientX < startPosition.x) scrollDx *= -1;
     if (event.clientY < startPosition.y) scrollDy *= -1;
-    //if (Math.abs(scrollDx) < panScrollDiv.offsetWidth / 2.0) scrollDx = 0;
-    //if (Math.abs(scrollDy) < panScrollDiv.offsetHeight / 2.0) scrollDy = 0;
-    if (Math.abs(scrollDx) > maxDx) scrollDx = Math.abs(scrollDx) / scrollDx * maxDx;
-    if (Math.abs(scrollDy) > maxDy) scrollDy = Math.abs(scrollDy) / scrollDy * maxDy;
     event.preventDefault();
   }
 }
