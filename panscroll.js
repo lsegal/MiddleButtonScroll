@@ -102,7 +102,7 @@ function panScroll() {
 }
 
 function scrollScale(value) {
-  return 0.04 * Math.pow(Math.abs(value), 1.4);
+  return 0.02 * Math.pow(Math.abs(value), 1.4);
 }
 
 function panScrollMouseDown(event) {
