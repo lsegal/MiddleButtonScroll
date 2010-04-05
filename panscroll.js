@@ -49,6 +49,7 @@ function startScroll(event) {
   
   src = event.srcElement;
   while (src) {
+    if (src == document) src = document.body;
     var overflow = window.getComputedStyle(src, '').getPropertyValue('overflow');
     if (src == document.body) {
       if (src.scrollWidth > window.innerWidth) scrollHoriz = true;
