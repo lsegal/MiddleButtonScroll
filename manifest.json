@@ -1,0 +1,17 @@
+{
+  "name": "MiddleButtonScroll",
+  "version": "1.0.1",
+  "description": "Adds smooth scrolling for the middle button auto-scroll and improves the UI.",
+  "icons": { 
+    "128": "icon128.png",
+    "48": "icon48.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*", "ftp://*/*"],
+      "all_frames": true,
+      "js": ["panscroll.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
