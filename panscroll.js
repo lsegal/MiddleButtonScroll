@@ -33,8 +33,8 @@ var autoreleasePanScroll = false;
 var startPosition = null;
 var scrollDx = 0;
 var scrollDy = 0;
-var maxDx = 80;
-var maxDy = 60;
+var maxDx = 150;
+var maxDy = 150;
 
 var panScrollDiv = document.createElement('div');
 var panScrollElement = null;
@@ -97,12 +97,15 @@ function panScroll() {
       if (top != panScrollElement.scrollTop)
         panScrollDiv.style.top = (panScrollDiv.offsetTop + (panScrollElement.scrollTop - top)) + 'px';
     }
-    setTimeout(panScroll, 5);
+    var x = ((Math.abs(scrollDx) + Math.abs(scrollDy)) / 80);
+    var timeout = Math.floor(-14.5 * Math.pow(x, 0.5) + 15);
+    if (timeout < 5) timeout = 5;
+    setTimeout(panScroll, timeout);
   }
 }
 
 function scrollScale(value) {
-  return 0.02 * Math.pow(Math.abs(value), 1.4);
+  return Math.ceil(0.02 * Math.pow(Math.abs(value), 1.4));
 }
 
 function panScrollMouseDown(event) {
