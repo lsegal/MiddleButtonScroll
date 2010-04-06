@@ -60,6 +60,7 @@ function startScroll(event) {
       if (src.scrollHeight > src.offsetHeight) scrollVert = true;
     }
     if (scrollHoriz || scrollVert) break;
+    if (src == document.body) break;
     src = src.parentNode;
   }
   if (!src) return;
