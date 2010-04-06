@@ -84,8 +84,10 @@ function startScroll(event) {
     var mousePos = {x:event.pageX, y:event.pageY};
     if (panScrollElement == document.body) {
       var compStyle = window.getComputedStyle(document.body, '');
-      mousePos.x -= parseInt(compStyle.getPropertyValue('margin-left'));
-      mousePos.y -= parseInt(compStyle.getPropertyValue('margin-top'));
+      if (compStyle.getPropertyValue('position') == 'relative') {
+        mousePos.x -= parseInt(compStyle.getPropertyValue('margin-left'));
+        mousePos.y -= parseInt(compStyle.getPropertyValue('margin-top'));
+      }
     }
     panScrollDiv.style.left = (mousePos.x - (panScrollDiv.offsetWidth / 2.0)) + 'px';
     panScrollDiv.style.top = (mousePos.y - (panScrollDiv.offsetHeight / 2.0)) + 'px';
