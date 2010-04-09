@@ -51,7 +51,8 @@ function startScroll(event) {
   while (src) {
     if (src == document) src = document.body;
     var overflow = window.getComputedStyle(src, '').getPropertyValue('overflow');
-    if (src == document.body) {
+    if (src == document.body || src == document.getElementsByTagName('html')[0]) {
+      src = document.body;
       if (src.scrollWidth > window.innerWidth) scrollHoriz = true;
       if (src.scrollHeight > window.innerHeight) scrollVert = true;
     }
@@ -61,7 +62,7 @@ function startScroll(event) {
     }
     if (scrollHoriz || scrollVert) break;
     if (src == document.body) break;
-    src = src.parentNode;
+    src = src.offsetParent;
   }
   if (!src) return;
   panScrollElement = src;
