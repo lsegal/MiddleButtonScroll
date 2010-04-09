@@ -139,7 +139,7 @@ function panScrollMouseDown(event) {
 
 function panScrollMouseUp(event) {
   if (event.button & 1 && middleMouseDown) {
-    endPanScroll();
+    endPanScroll(event);
   }
 }
 
