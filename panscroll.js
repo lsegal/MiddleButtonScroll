@@ -115,28 +115,31 @@ function panScroll() {
   }
 }
 
+function endPanScroll(event) {
+  middleMouseDown = false;
+  document.body.removeChild(panScrollDiv);
+  event.preventDefault();
+}
+
 function scrollScale(value) {
   return Math.ceil(0.02 * Math.pow(Math.abs(value), 1.4));
 }
 
 function panScrollMouseDown(event) {
-  if (event.srcElement.tagName == "A") return;
-  if (event.button & 1) {
-    if (middleMouseDown) {
-      panScrollMouseUp(event);
-      event.preventDefault();
-      return;
+  if (middleMouseDown) {
+    endPanScroll(event);
+  }
+  else {
+    if (event.srcElement.tagName == "A") return;
+    if (event.button & 1) {
+      startScroll(event);
     }
-    startScroll(event);
   }
 }
 
 function panScrollMouseUp(event) {
   if (event.button & 1 && middleMouseDown) {
-    middleMouseDown = false;
-    document.body.removeChild(panScrollDiv);
-    panScollAdded = false;
-    event.preventDefault();
+    endPanScroll();
   }
 }
 
