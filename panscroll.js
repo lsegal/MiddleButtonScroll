@@ -45,7 +45,7 @@ function startScroll(event) {
   var style = "position: absolute; width: 28px; height: 28px; z-index: 999999;";
   
   var src = event.srcElement;
-  while (src) { if (src.tagName == "A") return; src = src.parentNode; }
+  while (src) { if (src.tagName == "A" && src.href) return; src = src.parentNode; }
   
   src = event.srcElement;
   while (src) {
@@ -129,11 +129,8 @@ function panScrollMouseDown(event) {
   if (middleMouseDown) {
     endPanScroll(event);
   }
-  else {
-    if (event.srcElement.tagName == "A") return;
-    if (event.button & 1) {
-      startScroll(event);
-    }
+  else if (event.button & 1) {
+    startScroll(event);
   }
 }
 
