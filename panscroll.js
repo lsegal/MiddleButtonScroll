@@ -154,9 +154,9 @@ function panScrollMouseMove(event) {
   }
 }
 
-window.addEventListener('mousedown', panScrollMouseDown, false);
-window.addEventListener('mouseup', panScrollMouseUp, false);
-window.addEventListener('mousemove', panScrollMouseMove, false);
+window.addEventListener('mousedown', panScrollMouseDown, true);
+window.addEventListener('mouseup', panScrollMouseUp, true);
+window.addEventListener('mousemove', panScrollMouseMove, true);
 
 panScrollDiv.addEventListener('mousedown', function(event) {
   middleMouseDown = false;
