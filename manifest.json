@@ -1,9 +1,9 @@
 {
   "name": "MiddleButtonScroll",
   "manifest_version": 2,
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Adds smooth scrolling for the middle button auto-scroll and improves the UI.",
-  "icons": { 
+  "icons": {
     "128": "icon128.png",
     "48": "icon48.png"
   },
@@ -15,5 +15,6 @@
       "run_at": "document_start"
     }
   ],
-  "minimum_chrome_version": "5.0.0.0"
+  "minimum_chrome_version": "5.0.0.0",
+  "web_accessible_resources": ["*.png"]
 }
